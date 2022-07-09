@@ -1,0 +1,44 @@
+<sofka-error-management></sofka-error-management>
+<div mat-dialog-content>
+  <form id="frmLogin" [formGroup]="frmSignIn" (ngSubmit)="frmSignIn.valid ? submitSignIn() : false" autocomplete="off">
+
+    <!-- Email -->
+    <mat-form-field appearance="outline" class="input-100">
+      <mat-label>Correo electronico</mat-label>
+      <input matInput placeholder="Digite su correo electronico" type="email" formControlName="username">
+      <mat-icon matSuffix>alternate_email</mat-icon>
+      <mat-error *ngIf="(frmSignIn.get('username')?.errors | formOneError) === 'required'">Este campo es obligatorio
+      </mat-error>
+      <mat-error *ngIf="(frmSignIn.get('username')?.errors | formOneError) === 'pattern'">Digite un correo válido
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Password -->
+    <mat-form-field appearance="outline" class="input-100">
+      <mat-label>Contraseña</mat-label>
+      <input matInput placeholder="Digite su contraseña" type="password" formControlName="password">
+      <mat-icon matSuffix>key</mat-icon>
+      <mat-error *ngIf="(frmSignIn.get('password')?.errors | formOneError) === 'required'">Este campo es obligatorio
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Remember Me -->
+    <div class="form-checkbox">
+      <mat-checkbox formControlName="rememberMe">Recordar la sesión</mat-checkbox>
+    </div>
+
+    <button mat-button class="input-100 first-button" (click)="googleAuth()">
+      <img src="./assets/img/google16x16.png" alt="Google" class="google-16x16">
+      <span>
+        Ingrese con Google
+      </span>
+    </button>
+  </form>
+
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-flat-button (click)="changeToSignUp()">{{ "registrarse" | uppercase }}</button>
+  <button mat-flat-button color="primary" type="submit" form="frmLogin" [disabled]="!frmSignIn.valid">{{
+    "identificar" |
+    uppercase }}</button>
+</div>

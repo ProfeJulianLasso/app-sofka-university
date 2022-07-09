@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Sofka University</span>
+    <span class="spacer-100"></span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container">
+  <mat-card class="width-100">
+    <mat-card-header>
+      <mat-card-title>Titulo de ejemplo</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      Contenido de la tarjeta
+    </mat-card-content>
+    <mat-card-footer>
+      Pie de la tajeta
+    </mat-card-footer>
+    <mat-card-actions align="end">
+      <button mat-button>LIKE</button>
+      <button mat-button (click)="logout()">LOGOUT</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

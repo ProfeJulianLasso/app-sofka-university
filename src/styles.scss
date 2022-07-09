@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.input-100, .spacer-100, .width-100 {
+  width: 100%;
+}
+
+.form-checkbox {
+  margin: 4px 0px;
+  margin-left: 16px;
+}
+
+.container {
+  max-width: 1300px;
+  min-width: 1024px;
+  margin: 0 auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}

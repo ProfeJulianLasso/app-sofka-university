@@ -1,0 +1,56 @@
+<div mat-dialog-content>
+  <form id="frmSignUp" [formGroup]="frmSignUp" (ngSubmit)="frmSignUp.valid ? submitSignUp() : false" autocomplete="off">
+
+    <!-- Email -->
+    <mat-form-field appearance="outline" class="input-100">
+      <mat-label>Correo electronico</mat-label>
+      <input matInput placeholder="Digite su correo electronico" type="email" formControlName="email">
+      <mat-icon matSuffix>alternate_email</mat-icon>
+      <mat-error *ngIf="(frmSignUp.get('email')?.errors | formOneError) === 'required'">
+        Este campo es obligatorio
+      </mat-error>
+      <mat-error *ngIf="(frmSignUp.get('email')?.errors | formOneError) === 'pattern'">
+        Digite un correo válido
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Password -->
+    <mat-form-field appearance="outline" class="input-100">
+      <mat-label>Contraseña</mat-label>
+      <input matInput placeholder="Digite su contraseña" type="password" formControlName="password">
+      <mat-icon matSuffix>key</mat-icon>
+      <mat-error *ngIf="(frmSignUp.get('password')?.errors | formOneError) === 'required'">
+        Este campo es obligatorio
+      </mat-error>
+      <mat-error *ngIf="(frmSignUp.get('password')?.errors | formOneError) === 'pattern'">
+        Contraseña mínimo 8 carácteres (mayúsculas, minúsculas y números)
+      </mat-error>
+    </mat-form-field>
+
+    <!-- passwordConfirm -->
+    <mat-form-field appearance="outline" class="input-100">
+      <mat-label>Confirme su contraseña</mat-label>
+      <input matInput placeholder="Vuelva a digitar su contraseña" type="password" formControlName="passwordConfirm"
+        [errorStateMatcher]="matcher">
+      <mat-icon matSuffix>key</mat-icon>
+      <mat-error *ngIf="(frmSignUp.get('passwordConfirm')?.errors | formOneError) === 'required'">
+        Este campo es obligatorio
+      </mat-error>
+      <mat-error *ngIf="passwordMatchError">
+        Las contraseñas no coinciden
+      </mat-error>
+    </mat-form-field>
+
+    <button type="button" mat-button class="input-100 first-button" (click)="googleAuth()">
+      <img src="./assets/img/google16x16.png" alt="Google" class="google-16x16">
+      <span>
+        Registrarse con Google
+      </span>
+    </button>
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-flat-button (click)="changeToSignIn()">{{ "cancelar" | uppercase }}</button>
+  <button mat-flat-button color="primary" [disabled]="!frmSignUp.valid" type="submit" form="frmSignUp">{{ "registrarse"
+    | uppercase }}</button>
+</div>
