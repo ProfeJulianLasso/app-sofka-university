@@ -292,6 +292,7 @@ export class AuthService {
       .then((result) => {
         if (!environment.production)
           console.log('Ha iniciado sesión con éxito!');
+        this.changeIsEmailVerified(result.user?.emailVerified ?? false);
         this.getTokenFormAuthLoginAndChangeIsAuth(result);
         this.changeIsAuth(true);
       })
