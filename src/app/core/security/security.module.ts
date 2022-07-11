@@ -23,8 +23,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { UtilitiesModule } from '@utilities/utilities.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+// import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 // Components
 import { LoginComponent } from './components/login/login.component';
@@ -50,9 +51,10 @@ import { SignUpComponent } from './components/login/sign-up/sign-up.component';
     MatButtonModule,
     MatDialogModule,
     MatCheckboxModule,
-    MatSnackBarModule,
+    // MatSnackBarModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatProgressBarModule,
     SecurityRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule

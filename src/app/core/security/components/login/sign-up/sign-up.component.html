@@ -41,7 +41,7 @@
       </mat-error>
     </mat-form-field>
 
-    <button type="button" mat-button class="input-100 first-button" (click)="googleAuth()">
+    <button type="button" mat-button class="input-100 first-button" (click)="googleAuth()" [disabled]="btnGoogleAuth">
       <img src="./assets/img/google16x16.png" alt="Google" class="google-16x16">
       <span>
         Registrarse con Google
@@ -50,7 +50,7 @@
   </form>
 </div>
 <div mat-dialog-actions align="end">
-  <button mat-flat-button (click)="changeToSignIn()">{{ "cancelar" | uppercase }}</button>
+  <button mat-flat-button (click)="changeToSignIn()" [disabled]="btnCancel">{{ "cancelar" | uppercase }}</button>
   <button mat-flat-button color="primary" [disabled]="!frmSignUp.valid" type="submit" form="frmSignUp">{{ "registrarse"
     | uppercase }}</button>
 </div>

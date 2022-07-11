@@ -47,9 +47,9 @@ export class ErrorHandlerService {
     if (this.errors.length === 0) this.ChangeThereIsAnError(false);
   }
 
-  ReportError(component: string, message: string, error: object): void {
-    if (!environment.production) console.error(error);
-    this.Error = { component, message, error };
+  ReportError(component: string, message: string, code: string | number): void {
+    if (!environment.production) console.error({ component, code, message });
+    this.Error = { component, message, code };
   }
 
   private ChangeThereIsAnError(thereIsAnError: boolean) {

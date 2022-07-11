@@ -1,0 +1,13 @@
+<div fxLayout="row" class="snack-container my-snack-container">
+  <div class="spacer" fxLayout="row">
+    <div>
+      <mat-icon [ngClass]="choiseCSS()">{{ data.snackType }}</mat-icon>
+    </div>
+    <div>
+      <span>{{ data.message }}</span>
+    </div>
+  </div>
+  <div>
+    <button mat-button color="accent" type="button" (click)="dismiss()">{{ data.action }}</button>
+  </div>
+</div>

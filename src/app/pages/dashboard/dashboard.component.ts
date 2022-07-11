@@ -18,6 +18,6 @@ export class DashboardComponent implements OnInit {
   }
 
   logout(): void {
-    this.auth$.LogOut();
+    this.auth$.logOut();
   }
 }

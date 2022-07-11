@@ -1,3 +1,6 @@
 <h1 mat-dialog-title>Bienvenid@ a Sofka University</h1>
-<sofka-sign-in *ngIf="signIn"></sofka-sign-in>
-<sofka-sign-up *ngIf="!signIn"></sofka-sign-up>
+<sofka-sign-in *ngIf="signIn" (loading)="changeProgressBar($event)"></sofka-sign-in>
+<sofka-sign-up *ngIf="!signIn" (loading)="changeProgressBar($event)"></sofka-sign-up>
+<div class="progress-bar" *ngIf="progressBarLoading">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
